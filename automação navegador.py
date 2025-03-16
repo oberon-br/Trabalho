@@ -5,6 +5,10 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
+import os
+
+senha = os.environ.get("SENHA_ZPE")
+email = os.environ.get("EMAIL_SEI")
 
 chrome_options = Options()
 chrome_options.add_experimental_option("detach", True)
@@ -13,9 +17,9 @@ navegador = webdriver.Chrome(service=servico, options=chrome_options)
 
 navegador.get("https://sei.pi.gov.br/")
 
-navegador.find_element('xpath','/html/body/div[1]/div[3]/div/div[2]/form/div/div[2]/input[1]').send_keys('breno.barros@zpeparnaiba.pi.gov.br')
+navegador.find_element('xpath','/html/body/div[1]/div[3]/div/div[2]/form/div/div[2]/input[1]').send_keys (email)
 
-navegador.find_element('xpath','/html/body/div[1]/div[3]/div/div[2]/form/div/div[2]/input[2]').send_keys('2025@lveS')
+navegador.find_element('xpath','/html/body/div[1]/div[3]/div/div[2]/form/div/div[2]/input[2]').send_keys (senha)
 
 navegador.find_element('xpath','/html/body/div[1]/div[3]/div/div[2]/form/div/div[2]/select[1]').send_keys('z')
 
